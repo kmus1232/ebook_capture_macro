@@ -4,7 +4,7 @@ import os
 
 print("책 제목을 입력하세요 : ", end='')
 bookName = input()
-folderLocation = '/Users/kimminseok/captureForEbook/' + bookName
+folderLocation = 'YOUR_FOLDER_NAME' +  '/' + bookName
 os.mkdir(folderLocation)
 
 print("페이지 수를 입력하세요 : ", end='')
@@ -28,7 +28,7 @@ height = rightBottom[1] - leftTop[1]
 for i in range(pageCount):
     pag.screenshot(f"{folderLocation}/{i+1}.png",
                    region=(leftTop[0] * 2, leftTop[1] * 2, width * 2, height * 2))
-    # mac은 고해상도를 위해 한 픽셀에 4개를 집어넣음, 그래서 2배 곱해줘야 함
+    # mac은 고해상도를 위해 한 픽셀에 4개를 집어넣음, 그래서 2배 곱해줘야 함 (window 운영체제는 * 2 를 제거할 것)
     pag.press('right')
     print(f"page : {i+1}")
     time.sleep(0.1)
