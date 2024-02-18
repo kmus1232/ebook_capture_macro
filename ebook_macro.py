@@ -26,12 +26,11 @@ width = rightBottom[0] - leftTop[0]
 height = rightBottom[1] - leftTop[1]
 
 for i in range(pageCount):
-    pag.screenshot(f"{folderLocation}/{i+1}.png",
-                   region=(leftTop[0] * 2, leftTop[1] * 2, width * 2, height * 2))
-    # mac은 고해상도를 위해 한 픽셀에 4개를 집어넣음, 그래서 2배 곱해줘야 함 (window 운영체제는 * 2 를 제거할 것)
+    ss = pag.screenshot(region=(leftTop[0], leftTop[1], width, height))
+    ss.save(f"{folderLocation}/{i+1}.png")
     pag.press('right')
     print(f"page : {i+1}")
-    time.sleep(0.1)
+    time.sleep(0.2)
 
 print("스캔 완료")
 
